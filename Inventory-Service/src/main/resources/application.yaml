@@ -1,21 +1,39 @@
-# prod.yaml
 server:
-  port: 8080
+  port: 8081
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/
-
+##eureka:
+##  client:
+##    service-url:
+##      defaultZone: http://localhost:8761/
+#
 spring:
   application:
-    name: inventory-service
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          jwk-set-uri: http://localhost:8080/oauth2/jwks
-  zipkin:
-    base-url: http://localhost:9411
+    name: INVENTORY-SERVICE
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+  cloud:
+    config:
+      enabled: false
+  rabbitmq:
+    addresses: localhost:5672
 
-# dev.yaml (similar structure with different values)
+#
+##  security:
+##    oauth2:
+##      resourceserver:
+##        jwt:
+##          jwk-set-uri: http://localhost:8080/oauth2/jwks
+#  zipkin:
+#    base-url: http://localhost:9411
+#
+#management:
+#  tracing:
+#    sampling:
+#      probability: 1.0
