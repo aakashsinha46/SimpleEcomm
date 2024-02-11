@@ -1,11 +1,9 @@
 package in.aakashsinha.InventoryService.event;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class StockCheckEvent {
     private String productId;
     private String location;

@@ -1,11 +1,8 @@
 package in.aakashsinha.InventoryService.event;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
-@EventName("product-added")
+@Data
 public class ProductAddedEvent {
 
     private String productId;

@@ -17,6 +17,8 @@ public class InventoryServiceImpl implements InventoryService {
     @EventListener(ProductAddedEvent.class)
     public void handleProductAddedEvent(ProductAddedEvent event) {
         // Create inventory entry with initial stock
+
+
     }
 
     @Override
