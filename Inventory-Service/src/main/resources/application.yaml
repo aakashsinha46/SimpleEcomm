@@ -1,11 +1,15 @@
 server:
   port: 8081
 
-##eureka:
-##  client:
-##    service-url:
-##      defaultZone: http://localhost:8761/
-#
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:9000/eureka}
+
 spring:
   application:
     name: INVENTORY-SERVICE
@@ -30,10 +34,10 @@ spring:
 ##      resourceserver:
 ##        jwt:
 ##          jwk-set-uri: http://localhost:8080/oauth2/jwks
-#  zipkin:
-#    base-url: http://localhost:9411
-#
-#management:
-#  tracing:
-#    sampling:
-#      probability: 1.0
+  zipkin:
+    base-url: http://localhost:9411
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
